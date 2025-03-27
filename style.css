@@ -1,0 +1,240 @@
+:root {
+    --color-primary: #004d98;
+    --2nd-color-primary: #ffde02;
+    --3rd-color-primary: #edbb00;
+    --4th-color-primary: #db0030;
+    --5th-color-primary: #a50044;
+}
+
+#correct-answer,
+#incorrect-answer,
+#overall-score {
+    display: flex;
+    justify-content: space-around;
+}
+.correct {
+    background-color: green;
+    color: white;
+    border: solid var(--color-primary);
+    border-radius: 0.5em;
+    font-weight: bold;
+    width: 15em;
+    padding: 0.5em;
+    text-align: center;
+    font-size: large;
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+    border: solid var(--color-primary);
+    border-radius: 0.5em;
+    font-weight: bold;
+    width: 25em;
+    padding: 0.5em;
+    text-align: center;
+    font-size: large;
+}
+
+a {
+    display: flex;
+    justify-content: space-around;
+    color: var(--2nd-color-primary);
+}
+
+#results, #questions-page {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Results page styling */
+#results-page {
+    background-image: url("./Camp_Nou.jpg");
+    background-size: cover; 
+}
+
+#results-page img {
+    width: 60px;
+    height: 60.85px;
+    position: absolute;
+    margin: 0.5em -5.5em;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--5th-color-primary));
+    color: white;
+    width: 40%;
+    border: solid var(--5th-color-primary);
+    border-radius: 1em;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+
+#score h2 {
+    text-align: center;
+}
+#score p {
+    background-color: var(--2nd-color-primary);
+    color: var(--4th-color-primary);
+    text-align: center;
+    font-size: large;
+    border: solid var(--2nd-color-primary);
+    border-radius: 1em;
+    width: 8em;
+    padding: 0.3em 0 0.2em 0;
+}
+
+#overall-score {
+    border-bottom: groove;
+}
+
+#feedback {
+    text-align: center;
+}
+#summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--3rd-color-primary);
+    border: solid var(--3rd-color-primary);
+    border-radius: 0.5em;
+    margin: 1.2em 1em 1em 1em;
+}
+#summary h2 {
+    text-align: center;
+    color: var(--5th-color-primary);
+    padding-bottom: 0.2em;
+    margin: 0.8em 0.5em;
+    border-bottom: groove;
+    border-color: var(--5th-color-primary);
+}
+#summary p {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: x-large;
+}
+
+/* Questions page styling */
+#questions-page {
+    background-image: url("./Camp_Nou.jpg");
+    background-size: cover; 
+    color: white;
+    width: 25em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 10em;
+}
+
+#questions-page #question {
+    background-color: #db0030;
+    color: white;
+    border: solid #db0030;
+    border-radius: 1em;
+    margin: 0 0 0.5em 0;
+}
+
+#questions-page #question h2 {
+    background-color: #db0030;
+    border: solid #a50044;
+    border-radius: 1em;
+    text-align: center;
+    width: 10em;
+    position: relative;
+    bottom: 50px;
+    padding: 0.5em 0;
+}
+
+#question-container {
+    display: flex;
+    justify-content: center;
+}
+
+#questions-page #question p {
+    margin: 0 0 0.5em 0;
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+    font-size: x-large;
+}
+
+#answers {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    font-size: large;
+}
+
+label {
+    background-color: #db0030;
+    border: solid #db0030;
+    border-radius: 0.5em;
+    margin: 0.5em 0.5em 0 0.2em;
+    padding: 0.5em 0 0.5em 0.2em;
+    font-weight: 550;
+}
+label:hover {
+    background-color: #00376b; 
+    border-color: #00376b;
+}
+
+#questions-page img {
+    width: 60px;
+    height: 60.85px;
+    position: absolute;
+    margin-left: 0.5em;
+}
+
+#button {
+    text-align: center;
+    margin: 0.5em 0.5em 1em 0.5em;
+}
+
+label, button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+label:hover, button:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #ffed02;
+    border-color: #edbb00;
+    border-radius: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: large;
+}
+button:focus, label:focus {
+    outline: 3px solid var(--4th-color-primary);
+    outline-offset: 2px;
+}
+
+#progress-bar {
+    width: 80%;
+    height: 10px;
+    background: #ccc;
+    margin: 1em auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar::after {
+    content: '';
+    display: block;
+    width: calc(20% * var(--current-question, 1));
+    height: 100%;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
